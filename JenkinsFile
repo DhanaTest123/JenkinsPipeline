@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+    stages {
+        stage('Performance Testing') {
+            steps {
+                echo 'Grafana link -http://localhost:3000/d/-6w8CSJVk/k6_api'
+                bat 'k6 run --out influxdb=http://localhost:8086/K6Pipeline API.js'
+                
+            }
+        }
+    }
+}
