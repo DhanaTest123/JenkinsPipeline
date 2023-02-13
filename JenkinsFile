@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Performance Testing') {
             steps {
-                echo 'Grafana link -http://localhost:3000/d/-6w8CSJVk/k6_api'
+                echo 'Grafana link -http://localhost:3000/d/-6w8CSJVk/k6_api?orgId=1&refresh=5s'
                 bat 'k6 run --out influxdb=http://localhost:8086/K6Pipeline API.js'
                 
             }
